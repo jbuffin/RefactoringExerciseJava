@@ -41,11 +41,12 @@ public class PayCalc {
 		//DAH: INRP Replace .Length with .Length -1
 		for(int j=0; j<Database.Employees.length-1; j++) {
 			
-			switch((String)emps[0][j]) {
-				case "Hourly":
+            int val = ((String)emps[0][j]).equals("Hourly") ? 1 : 2;
+			switch(val) {
+				case 1:
 					t = t + ((Integer)emps[1][j]).doubleValue() * (Double)emps[3][j];
 					break;
-				case "Salary":
+				case 2:
 					if(emps[3][j] != null)
                     t = 80 * ((Double)emps[3][j] / 2080);
 					break;
